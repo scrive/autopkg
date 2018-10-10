@@ -47,6 +47,15 @@
         		</array>
     		</dict>
 		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>purge_destination</key>
+				<true/>
+			</dict>
+			<key>Processor</key>
+			<string>ZoomITUnarchiver</string>
+		</dict>
     </array>
 </dict>
 </plist>
