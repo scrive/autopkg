@@ -9,9 +9,9 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>ZoomInstallerIT</string>
+        <string>Zoom</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://zoom.us/client/latest</string>
+        <string>https://zoom.us/client/latest/ZoomInstallerIT.pkg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.6.0</string>
@@ -23,7 +23,7 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%DOWNLOAD_URL%/%NAME%.pkg</string>
+                <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
                 <string>%NAME%.pkg</string>
             </dict>
@@ -46,7 +46,7 @@
             		<string>Apple Root CA</string>
         		</array>
     		</dict>
-		</dict>
+	</dict>
     </array>
 </dict>
 </plist>
