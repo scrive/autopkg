@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Microsoft Office</string>
+        <string>Microsoft_Office</string>
     </dict>
     <key>MinimumVersion</key>
     <string>1.0.4</string>

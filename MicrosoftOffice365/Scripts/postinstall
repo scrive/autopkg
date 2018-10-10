@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Determine working directory
+
+install_dir=`dirname $0`
+
+# Install unlicensed Office 2016
+
+/usr/sbin/installer -applyChoiceChangesXML $install_dir/office.xml -dumplog -verbose -pkg /private/tmp/msoffice/"Microsoft_Office_Installer.pkg" -target "$3"
+rm -rf /private/tmp/msoffice
+
+exit 0
