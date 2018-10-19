@@ -32,14 +32,17 @@ class SophosScanner(Processor):
 	}
 	output_variables = {
 		"sophos_scanner_summary_result": {
-			"description": "Reports of threats. No output is a clean scan.",
+			"description": "Virus scan report.",
 		}
 	}
 
 	def scan_location(self, input_path):
-		args = ['/usr/local/bin/sweep', '-pua', '-s', '-nb', '-rec', '-all', '--examine-x-bit', '-archive', input_path]
+		args = ['/usr/local/bin/sweep', '-pua', '-ss', '-suspicious', '-nb', '-rec', '-all', '--show-file-details', '--examine-x-bit', '-archive', '-f', '-sc', input_path]
 		p = subprocess.Popen(args, stdout=subprocess.PIPE)
-		return p.communicate()[0]
+		output = p.communicate()[0]
+		if len(output) == 0:
+			return "No virus or PUAs detected by Sophos."
+		return output
 
 	def main(self):
 		if os.path.isfile("/usr/local/bin/sweep") != True:
