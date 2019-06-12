@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Kill all these stupid processes that don't quit when GDFS exits which block updates
+ps -A | grep "/Applications/Google Drive File Stream.app/Contents/PlugIns/FinderSyncExtension.appex/Contents/MacOS/FinderSyncExtension" | grep -v grep | awk '{print $1}' | xargs kill -9
