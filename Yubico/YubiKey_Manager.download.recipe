@@ -24,8 +24,8 @@
             <dict>
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
-                <key>filename</key>
-                <string>%NAME%.pkg</string>
+                <key>prefetch_filename</key>
+                <true/>
             </dict>
         </dict>
         <dict>
