@@ -16,7 +16,8 @@
 # limitations under the License.
 
 import xml.etree.ElementTree as ET
-import urllib2
+import urllib.request as urllib3
+import ssl
 
 from autopkglib import Processor, ProcessorError
 
@@ -45,10 +46,13 @@ class MicrosoftOfficeURL(Processor):
 		"""Gets installer information from macadmins.software"""
 		# Get metadata URL
 		self.output("Requesting xml: %s" % BASE_URL)
-		req = urllib2.Request(BASE_URL)
+		ctx = ssl.create_default_context()
+		ctx.check_hostname = False
+		ctx.verify_mode = ssl.CERT_NONE
+		req = urllib3.Request(BASE_URL)
 
 		try:
-			fdesc = urllib2.urlopen(req)
+			fdesc = urllib3.urlopen(req, context=ctx)
 			data = fdesc.read()
 			fdesc.close()
 		except BaseException as err:
