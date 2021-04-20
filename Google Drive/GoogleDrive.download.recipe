@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest Google Drive File Stream disk image.</string>
+    <string>Downloads latest Google Drive for Desktop disk image.</string>
     <key>Identifier</key>
-    <string>com.github.scrive.download.GoogleDriveFileStream</string>
+    <string>com.github.scrive.download.GoogleDriveForDesktop</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>GoogleDriveFileStream</string>
+        <string>GoogleDrive</string>
         <key>DOWNLOAD_URL</key>
-        <string>https://dl.google.com/drive-file-stream/GoogleDriveFileStream.dmg</string>
+        <string>https://dl.google.com/drive-file-stream/GoogleDrive.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
