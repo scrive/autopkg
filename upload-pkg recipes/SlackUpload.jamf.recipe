@@ -34,8 +34,17 @@
 				<key>pkg_category</key>
 				<string>%CATEGORY%</string>
 			</dict>
+<key>Processor</key>
+			<string>CodeSignatureVerifier</string>
+		</dict>
+		<dict>
+			<key>Arguments</key>
+			<dict>
+				<key>DISABLE_CODE_SIGNATURE_VERIFICATION</key>
+			</dict>
 			<key>Processor</key>
 			<string>com.github.grahampugh.jamf-upload.processors/JamfPackageUploader</string>
+
 		</dict>
 	</array>
 </dict>
