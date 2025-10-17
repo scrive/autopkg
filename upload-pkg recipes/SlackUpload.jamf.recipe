@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>This recipe downloads latest version of Slack and uploads it to Jamf</string>
+	<string>Downloads the latest version of Slack and uploads the package to Jamf Pro with version number in package name.</string>
 	<key>Identifier</key>
-	<string>scrive.autopkg.jamf.SlackUpload</string>
+	<string>com.github.scrive.jamf.SlackUpload</string>
 	<key>Input</key>
 	<dict>
-		<key>CATEGORY</key>
-		<string>Company</string>
 		<key>NAME</key>
 		<string>Slack</string>
+		<key>CATEGORY</key>
+		<string>Company</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>2.3</string>
@@ -20,23 +20,37 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Processor</key>
+			<string>Copier</string>
+			<key>Arguments</key>
+			<dict>
+				<key>source_path</key>
+				<string>%pkg_path%</string>
+				<key>destination_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
+				<key>overwrite</key>
+				<true/>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>category_name</key>
 				<string>%CATEGORY%</string>
 			</dict>
-			<key>Processor</key>
-			<string>com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader</string>
 		</dict>
 		<dict>
+			<key>Processor</key>
+			<string>com.github.grahampugh.jamf-upload.processors/JamfPackageUploader</string>
 			<key>Arguments</key>
 			<dict>
 				<key>pkg_category</key>
 				<string>%CATEGORY%</string>
+				<key>pkg_path</key>
+				<string>%RECIPE_CACHE_DIR%/%NAME%-%version%.pkg</string>
 			</dict>
-			<key>Processor</key>
-			<string>com.github.grahampugh.jamf-upload.processors/JamfPackageUploader</string>
-
 		</dict>
 	</array>
 </dict>
